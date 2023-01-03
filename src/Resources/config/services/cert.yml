@@ -1,0 +1,103 @@
+services:
+  Evrinoma\CertBundle\Controller\CertApiController:
+    alias: evrinoma.cert.cert.api.controller
+    public: true
+
+  evrinoma.cert.cert.api.controller:
+    class: Evrinoma\CertBundle\Controller\CertApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.cert.cert.facade'
+    autowire: true
+
+  evrinoma.cert.cert.facade:
+    class: Evrinoma\CertBundle\Facade\Cert\Facade
+    arguments:
+      - '@evrinoma.cert.cert.command.manager'
+      - '@evrinoma.cert.cert.query.manager'
+      - '@evrinoma.cert.adaptor'
+    autowire: true
+
+  Evrinoma\CertBundle\Facade\Cert\FacadeInterface:
+    alias: evrinoma.cert.cert.facade
+
+  evrinoma.cert.cert.factory:
+    class: Evrinoma\CertBundle\Factory\Cert\Factory
+    public: true
+    arguments:
+
+  evrinoma.cert.cert.orm.repository:
+    class: Evrinoma\CertBundle\Repository\Orm\Cert\CertRepository
+    public: true
+    arguments:
+
+  evrinoma.cert.cert.command.manager:
+    class: Evrinoma\CertBundle\Manager\Cert\CommandManager
+    arguments:
+      - '@evrinoma.cert.cert.validator'
+      - '@evrinoma.cert.cert.repository'
+      - '@evrinoma.cert.cert.factory'
+      - '@evrinoma.cert.cert.command.mediator'
+
+  Evrinoma\CertBundle\Manager\Cert\CommandManagerInterface:
+    alias: evrinoma.cert.cert.command.manager
+
+  evrinoma.cert.cert.query.manager:
+    class: Evrinoma\CertBundle\Manager\Cert\QueryManager
+    arguments:
+      - '@evrinoma.cert.cert.repository'
+
+  Evrinoma\CertBundle\Manager\Cert\QueryManagerInterface:
+    alias: evrinoma.cert.cert.query.manager
+    
+  evrinoma.cert.cert.validator:
+    class: Evrinoma\CertBundle\Validator\CertValidator
+    public: true
+    arguments:
+
+  Evrinoma\CertBundle\Validator\CertValidator:
+    alias: evrinoma.cert.cert.validator
+
+  evrinoma.cert.cert.query.orm.mediator:
+    class: Evrinoma\CertBundle\Mediator\Cert\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\CertBundle\Mediator\Cert\Orm\QueryMediator:
+    alias: evrinoma.cert.cert.query.orm.mediator
+
+  evrinoma.cert.cert.command.mediator:
+    class: Evrinoma\CertBundle\Mediator\Cert\CommandMediator
+    public: true
+    arguments:
+      - '@evrinoma.cert.cert.system.file_system'
+
+  Evrinoma\CertBundle\Mediator\Cert\CommandMediator:
+    alias: evrinoma.cert.cert.command.mediator
+
+  Evrinoma\CertBundle\Mediator\Cert\CommandMediatorInterface:
+    alias: evrinoma.cert.cert.command.mediator
+
+  evrinoma.cert.cert.pre.validator:
+    class: Evrinoma\CertBundle\PreValidator\Cert\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\CertBundle\PreValidator\Cert\DtoPreValidator:
+    alias: evrinoma.cert.cert.pre.validator
+
+  Evrinoma\CertBundle\PreValidator\Cert\DtoPreValidatorInterface:
+    alias: evrinoma.cert.cert.pre.validator
+
+  evrinoma.cert.cert.system.file_system:
+    class: Evrinoma\CertBundle\System\FileSystem
+    public: true
+    arguments:
+
+  Evrinoma\CertBundle\System\FileSystem:
+    alias: evrinoma.cert.cert.system.file_system
+
+  Evrinoma\CertBundle\System\FileSystemInterface:
+    alias: evrinoma.cert.cert.system.file_system

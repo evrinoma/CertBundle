@@ -1,0 +1,9 @@
+services:
+  evrinoma.cert.test.functional.action.file:
+    class: Evrinoma\CertBundle\Tests\Functional\Action\BaseFile
+    public: true
+    arguments:
+
+  Evrinoma\CertBundle\Tests\Functional\Action\BaseFile:
+    alias: evrinoma.cert.test.functional.action.file
+    public: true

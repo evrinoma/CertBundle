@@ -1,0 +1,3 @@
+imports:
+  - { resource: tests/cert.yml }
+  - { resource: tests/file.yml }

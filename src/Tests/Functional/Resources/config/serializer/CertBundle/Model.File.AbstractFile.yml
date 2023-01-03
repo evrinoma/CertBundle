@@ -1,0 +1,52 @@
+Evrinoma\CertBundle\Model\File\AbstractFile:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    brief:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    description:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    active:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    position:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    image:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    attachment:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    cert:
+      type: Evrinoma\CertBundle\Model\Cert\AbstractCert
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true

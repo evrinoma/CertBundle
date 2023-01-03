@@ -1,0 +1,10 @@
+services:
+  evrinoma.cert.fixtures.cert:
+    class: Evrinoma\CertBundle\Fixtures\CertFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.cert.fixtures.file:
+    class: Evrinoma\CertBundle\Fixtures\FileFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

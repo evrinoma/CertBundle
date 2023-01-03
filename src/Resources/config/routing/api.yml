@@ -1,0 +1,9 @@
+cert_api:
+  resource: "@EvrinomaCertBundle/Controller/CertApiController.php"
+  type: annotation
+
+cert_file_api:
+  resource: "@EvrinomaCertBundle/Controller/FileApiController.php"
+  type: annotation
+
+

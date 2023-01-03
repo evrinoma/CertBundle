@@ -1,0 +1,11 @@
+services:
+  evrinoma.cert.constraint.property.file.brief:
+    class: Evrinoma\CertBundle\Constraint\Property\File\Brief
+  evrinoma.cert.constraint.property.file.active:
+    class: Evrinoma\CertBundle\Constraint\Property\File\Active
+  evrinoma.cert.constraint.property.file.image:
+    class: Evrinoma\CertBundle\Constraint\Property\File\Image
+  evrinoma.cert.constraint.property.file.attachment:
+    class: Evrinoma\CertBundle\Constraint\Property\File\Attachment
+  evrinoma.cert.constraint.property.file.position:
+    class: Evrinoma\CertBundle\Constraint\Property\File\Position

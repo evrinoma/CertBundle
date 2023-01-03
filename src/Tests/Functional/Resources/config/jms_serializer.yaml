@@ -1,0 +1,6 @@
+jms_serializer:
+  metadata:
+    directories:
+      CertBundle:
+        namespace_prefix: "Evrinoma\\CertBundle"
+        path: '%kernel.root_dir%/Resources/config/serializer/CertBundle'

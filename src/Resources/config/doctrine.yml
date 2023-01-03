@@ -1,0 +1,5 @@
+services:
+  evrinoma.cert.object_manager:
+    class:  Doctrine\Persistence\ObjectManager
+    public: false
+    arguments: ['%evrinoma.cert.model_manager_name%']

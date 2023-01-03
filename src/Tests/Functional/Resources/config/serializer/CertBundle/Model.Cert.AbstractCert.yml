@@ -1,0 +1,73 @@
+Evrinoma\CertBundle\Model\Cert\AbstractCert:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    updatedAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    active:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    title:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    position:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    image:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    preview:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    description:
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    start:
+      type: DateTimeImmutable<'Y-m-d'>
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true
+    file:
+      type: ArrayCollection<Evrinoma\CertBundle\Model\File\AbstractFile>
+      groups: [
+          API_GET_CERT, API_POST_CERT, API_PUT_CERT,
+          API_GET_CERT_FILE, API_POST_CERT_FILE, API_PUT_CERT_FILE,
+      ]
+      expose: true

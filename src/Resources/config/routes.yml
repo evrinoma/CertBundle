@@ -1,0 +1,3 @@
+certapi:
+  resource: "@EvrinomaCertBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma
