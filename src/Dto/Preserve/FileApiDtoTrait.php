@@ -16,6 +16,7 @@ namespace Evrinoma\CertBundle\Dto\Preserve;
 use Evrinoma\CertBundle\Dto\CertApiDtoInterface;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ActiveTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\AttachmentTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\BriefTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ImageTrait;
@@ -24,6 +25,7 @@ use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
 trait FileApiDtoTrait
 {
     use ActiveTrait;
+    use AttachmentTrait;
     use BriefTrait;
     use IdTrait;
     use ImageTrait;
