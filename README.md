@@ -37,9 +37,9 @@ Actions в контроллере разбиты на две группы
 
 группы  сериализации
 
-    1. API_GET_GALLERY, API_CRITERIA_GALLERY - получение сертификата
-    2. API_POST_GALLERY - создание сертификата
-    3. API_PUT_GALLERY -  редактирование сертификата
+    1. API_GET_CERT, API_CRITERIA_CERT - получение сертификата
+    2. API_POST_CERT - создание сертификата
+    3. API_PUT_CERT -  редактирование сертификата
 
 # Статусы:
 
