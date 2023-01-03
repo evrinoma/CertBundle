@@ -25,7 +25,6 @@ use Evrinoma\UtilsBundle\Entity\PositionTrait;
 
 /**
  * @ORM\MappedSuperclass
- * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="idx_brief", columns={"brief"})})
  */
 abstract class AbstractFile implements FileInterface
 {
