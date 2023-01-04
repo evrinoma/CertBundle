@@ -71,8 +71,6 @@ services:
   evrinoma.cert.cert.command.mediator:
     class: Evrinoma\CertBundle\Mediator\Cert\CommandMediator
     public: true
-    arguments:
-      - '@evrinoma.cert.cert.system.file_system'
 
   Evrinoma\CertBundle\Mediator\Cert\CommandMediator:
     alias: evrinoma.cert.cert.command.mediator
