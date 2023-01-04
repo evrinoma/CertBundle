@@ -15,8 +15,8 @@ namespace Evrinoma\CertBundle\Dto\Preserve;
 
 use Evrinoma\CertBundle\Dto\CertApiDtoInterface;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
-use Evrinoma\DtoCommon\ValueObject\Mutable\AttachmentInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveInterface;
+use Evrinoma\DtoCommon\ValueObject\Mutable\AttachmentInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\BriefInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ImageInterface;
