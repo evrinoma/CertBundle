@@ -40,7 +40,6 @@ services:
       - '@evrinoma.cert.file.repository'
       - '@evrinoma.cert.file.factory'
       - '@evrinoma.cert.file.command.mediator'
-      - '@evrinoma.cert.cert.query.manager'
 
   Evrinoma\CertBundle\Manager\File\CommandManagerInterface:
     alias: evrinoma.cert.file.command.manager
@@ -74,6 +73,7 @@ services:
     public: true
     arguments:
       - '@evrinoma.cert.cert.system.file_system'
+      - '@evrinoma.cert.cert.query.manager'
 
   Evrinoma\CertBundle\Mediator\File\CommandMediator:
     alias: evrinoma.cert.file.command.mediator

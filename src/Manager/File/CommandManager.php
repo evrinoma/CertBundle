@@ -20,7 +20,6 @@ use Evrinoma\CertBundle\Exception\File\FileCannotBeSavedException;
 use Evrinoma\CertBundle\Exception\File\FileInvalidException;
 use Evrinoma\CertBundle\Exception\File\FileNotFoundException;
 use Evrinoma\CertBundle\Factory\File\FactoryInterface;
-use Evrinoma\CertBundle\Manager\Cert\QueryManagerInterface as CertQueryManagerInterface;
 use Evrinoma\CertBundle\Mediator\File\CommandMediatorInterface;
 use Evrinoma\CertBundle\Model\File\FileInterface;
 use Evrinoma\CertBundle\Repository\File\FileRepositoryInterface;
@@ -32,15 +31,13 @@ final class CommandManager implements CommandManagerInterface
     private ValidatorInterface            $validator;
     private FactoryInterface           $factory;
     private CommandMediatorInterface      $mediator;
-    private CertQueryManagerInterface $certQueryManager;
 
-    public function __construct(ValidatorInterface $validator, FileRepositoryInterface $repository, FactoryInterface $factory, CommandMediatorInterface $mediator, CertQueryManagerInterface $certQueryManager)
+    public function __construct(ValidatorInterface $validator, FileRepositoryInterface $repository, FactoryInterface $factory, CommandMediatorInterface $mediator)
     {
         $this->validator = $validator;
         $this->repository = $repository;
         $this->factory = $factory;
         $this->mediator = $mediator;
-        $this->certQueryManager = $certQueryManager;
     }
 
     /**
@@ -57,12 +54,6 @@ final class CommandManager implements CommandManagerInterface
         $file = $this->factory->create($dto);
 
         $this->mediator->onCreate($dto, $file);
-
-        try {
-            $file->setCert($this->certQueryManager->proxy($dto->getCertApiDto()));
-        } catch (\Exception $e) {
-            throw new FileCannotBeCreatedException($e->getMessage());
-        }
 
         $errors = $this->validator->validate($file);
 
@@ -92,12 +83,6 @@ final class CommandManager implements CommandManagerInterface
             $file = $this->repository->find($dto->idToString());
         } catch (FileNotFoundException $e) {
             throw $e;
-        }
-
-        try {
-            $file->setCert($this->certQueryManager->proxy($dto->getCertApiDto()));
-        } catch (\Exception $e) {
-            throw new FileCannotBeSavedException($e->getMessage());
         }
 
         $this->mediator->onUpdate($dto, $file);
