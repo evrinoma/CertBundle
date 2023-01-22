@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Evrinoma\CertBundle\Dto;
 
+use Evrinoma\CertBundle\DtoCommon\ValueObject\Mutable\CertApiDtoTrait;
 use Evrinoma\DtoBundle\Annotation\Dto;
 use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
@@ -30,50 +31,14 @@ class FileApiDto extends AbstractDto implements FileApiDtoInterface
     use ActiveTrait;
     use AttachmentTrait;
     use BriefTrait;
+    use CertApiDtoTrait;
     use IdTrait;
     use ImageTrait;
     use PositionTrait;
-
     /**
      * @Dto(class="Evrinoma\CertBundle\Dto\CertApiDto", generator="genRequestCertApiDto")
      */
-    private ?CertApiDtoInterface $certApiDto = null;
-
-    /**
-     * @param CertApiDtoInterface $certApiDto
-     *
-     * @return DtoInterface
-     */
-    public function setCertApiDto(CertApiDtoInterface $certApiDto): DtoInterface
-    {
-        $this->certApiDto = $certApiDto;
-
-        return $this;
-    }
-
-    public function hasCertApiDto(): bool
-    {
-        return null !== $this->certApiDto;
-    }
-
-    public function getCertApiDto(): CertApiDtoInterface
-    {
-        return $this->certApiDto;
-    }
-
-    public function genRequestCertApiDto(?Request $request): ?\Generator
-    {
-        if ($request) {
-            $type = $request->get(CertApiDtoInterface::CERT);
-            if ($type) {
-                $newRequest = $this->getCloneRequest();
-                $type[DtoInterface::DTO_CLASS] = CertApiDto::class;
-                $newRequest->request->add($type);
-
-                yield $newRequest;
-            }
-        }
-    }
+    protected ?CertApiDtoInterface $certApiDto = null;
 
     public function toDto(Request $request): DtoInterface
     {

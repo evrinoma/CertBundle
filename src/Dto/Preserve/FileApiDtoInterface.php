@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Evrinoma\CertBundle\Dto\Preserve;
 
-use Evrinoma\CertBundle\Dto\CertApiDtoInterface;
-use Evrinoma\DtoBundle\Dto\DtoInterface;
+use Evrinoma\CertBundle\DtoCommon\ValueObject\Mutable\CertApiDtoInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\AttachmentInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\BriefInterface;
@@ -22,12 +21,6 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\IdInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ImageInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionInterface;
 
-interface FileApiDtoInterface extends IdInterface, BriefInterface, ActiveInterface, ImageInterface, PositionInterface, AttachmentInterface
+interface FileApiDtoInterface extends IdInterface, BriefInterface, ActiveInterface, ImageInterface, PositionInterface, AttachmentInterface, CertApiDtoInterface
 {
-    /**
-     * @param CertApiDtoInterface $certApiDto
-     *
-     * @return DtoInterface
-     */
-    public function setCertApiDto(CertApiDtoInterface $certApiDto): DtoInterface;
 }

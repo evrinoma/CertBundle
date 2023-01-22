@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Evrinoma\CertBundle\Dto\Preserve;
 
-use Evrinoma\CertBundle\Dto\CertApiDtoInterface;
-use Evrinoma\DtoBundle\Dto\DtoInterface;
+use Evrinoma\CertBundle\DtoCommon\ValueObject\Preserve\CertApiDtoTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\AttachmentTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\BriefTrait;
@@ -27,17 +26,8 @@ trait FileApiDtoTrait
     use ActiveTrait;
     use AttachmentTrait;
     use BriefTrait;
+    use CertApiDtoTrait;
     use IdTrait;
     use ImageTrait;
     use PositionTrait;
-
-    /**
-     * @param CertApiDtoInterface $certApiDto
-     *
-     * @return DtoInterface
-     */
-    public function setCertApiDto(CertApiDtoInterface $certApiDto): DtoInterface
-    {
-        return parent::setCertApiDto($certApiDto);
-    }
 }
