@@ -109,7 +109,7 @@ class FileFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
                 ->setCreatedAt(new \DateTimeImmutable())
             ;
 
-            $this->expandEntity($entity);
+            $this->expandEntity($entity, $record);
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
