@@ -74,14 +74,16 @@ class CertFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
         $short = self::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
-            $entity = new static::$class();
+        foreach ($this->getData() as $record) {
+            $entity = $this->getEntity();
             $entity
                 ->setActive($record[CertApiDtoInterface::ACTIVE])
                 ->setTitle($record[CertApiDtoInterface::TITLE])
                 ->setPosition($record[CertApiDtoInterface::POSITION])
                 ->setCreatedAt(new \DateTimeImmutable())
             ;
+
+            $this->expandEntity($entity);
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);

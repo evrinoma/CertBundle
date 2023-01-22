@@ -97,8 +97,8 @@ class FileFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
         $shortCert = CertFixtures::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
-            $entity = new static::$class();
+        foreach ($this->getData() as $record) {
+            $entity = $this->getEntity();
             $entity
                 ->setCert($this->getReference($shortCert.$record[CertApiDtoInterface::CERT]))
                 ->setActive($record[FileApiDtoInterface::ACTIVE])
@@ -108,6 +108,8 @@ class FileFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
                 ->setAttachment($record[FileApiDtoInterface::ATTACHMENT])
                 ->setCreatedAt(new \DateTimeImmutable())
             ;
+
+            $this->expandEntity($entity);
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
