@@ -56,11 +56,12 @@ class QueryMediator extends AbstractQueryMediator implements QueryMediatorInterf
                 ->setParameter('active', $dto->getActive());
         }
 
+        $aliasCert = AliasInterface::CERT;
+        $builder
+            ->leftJoin($alias.'.cert', $aliasCert)
+            ->addSelect($aliasCert);
+
         if ($dto->hasCertApiDto()) {
-            $aliasCert = AliasInterface::CERT;
-            $builder
-                ->leftJoin($alias.'.cert', $aliasCert)
-                ->addSelect($aliasCert);
             if ($dto->getCertApiDto()->hasId()) {
                 $builder->andWhere($aliasCert.'.id = :idCert')
                     ->setParameter('idCert', $dto->getCertApiDto()->getId());
