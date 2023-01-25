@@ -25,7 +25,7 @@
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Cert\Entity\Cert сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\Cert\Dto\CertDto класс dto с которым работает сущность
+        dto: App\Cert\Dto\CertDto класс dto с которым работает сущность
         decorates:
           command - декоратор mediator команд сертификата
           query - декоратор mediator запросов сертификата
