@@ -20,20 +20,20 @@ use Evrinoma\CertBundle\Model\File\FileInterface;
 interface FileCommandRepositoryInterface
 {
     /**
-     * @param FileInterface $type
+     * @param FileInterface $file
      *
      * @return bool
      *
      * @throws FileCannotBeSavedException
      */
-    public function save(FileInterface $type): bool;
+    public function save(FileInterface $file): bool;
 
     /**
-     * @param FileInterface $type
+     * @param FileInterface $file
      *
      * @return bool
      *
      * @throws FileCannotBeRemovedException
      */
-    public function remove(FileInterface $type): bool;
+    public function remove(FileInterface $file): bool;
 }
