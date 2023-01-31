@@ -59,26 +59,45 @@ class BaseCert extends AbstractServiceTest implements BaseCertTestInterface
 
     public function actionCriteriaNotFound(): void
     {
-        $find = $this->criteria([CertApiDtoInterface::DTO_CLASS => static::getDtoClass(), CertApiDtoInterface::ACTIVE => Active::wrong()]);
+        $find = $this->criteria([
+            CertApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            CertApiDtoInterface::ACTIVE => Active::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
 
-        $find = $this->criteria([CertApiDtoInterface::DTO_CLASS => static::getDtoClass(), CertApiDtoInterface::ID => Id::value(), CertApiDtoInterface::ACTIVE => Active::block(), CertApiDtoInterface::TITLE => Title::wrong()]);
+        $find = $this->criteria([
+            CertApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            CertApiDtoInterface::ID => Id::value(),
+            CertApiDtoInterface::ACTIVE => Active::block(),
+            CertApiDtoInterface::TITLE => Title::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
     }
 
     public function actionCriteria(): void
     {
-        $find = $this->criteria([CertApiDtoInterface::DTO_CLASS => static::getDtoClass(), CertApiDtoInterface::ACTIVE => Active::value(), CertApiDtoInterface::ID => Id::value()]);
+        $find = $this->criteria([
+            CertApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            CertApiDtoInterface::ACTIVE => Active::value(),
+            CertApiDtoInterface::ID => Id::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([CertApiDtoInterface::DTO_CLASS => static::getDtoClass(), CertApiDtoInterface::ACTIVE => Active::delete()]);
+        $find = $this->criteria([
+            CertApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            CertApiDtoInterface::ACTIVE => Active::delete(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(3, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([CertApiDtoInterface::DTO_CLASS => static::getDtoClass(), CertApiDtoInterface::ACTIVE => Active::delete(), CertApiDtoInterface::TITLE => Title::value()]);
+        $find = $this->criteria([
+            CertApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            CertApiDtoInterface::ACTIVE => Active::delete(),
+            CertApiDtoInterface::TITLE => Title::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
     }
@@ -99,7 +118,11 @@ class BaseCert extends AbstractServiceTest implements BaseCertTestInterface
 
     public function actionPut(): void
     {
-        $query = static::getDefault([CertApiDtoInterface::ID => Id::value(), CertApiDtoInterface::TITLE => Title::value(), CertApiDtoInterface::POSITION => Position::value()]);
+        $query = static::getDefault([
+            CertApiDtoInterface::ID => Id::value(),
+            CertApiDtoInterface::TITLE => Title::value(),
+            CertApiDtoInterface::POSITION => Position::value(),
+        ]);
 
         $find = $this->assertGet(Id::value());
 
@@ -130,7 +153,7 @@ class BaseCert extends AbstractServiceTest implements BaseCertTestInterface
 
     public function actionDeleteUnprocessable(): void
     {
-        $response = $this->delete(Id::empty());
+        $response = $this->delete(Id::blank());
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $response);
         $this->testResponseStatusUnprocessable();
     }
@@ -151,12 +174,18 @@ class BaseCert extends AbstractServiceTest implements BaseCertTestInterface
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([CertApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][CertApiDtoInterface::ID], CertApiDtoInterface::TITLE => Title::empty()]);
+        $query = static::getDefault([
+            CertApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][CertApiDtoInterface::ID],
+            CertApiDtoInterface::TITLE => Title::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([CertApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][CertApiDtoInterface::ID], CertApiDtoInterface::POSITION => Position::empty()]);
+        $query = static::getDefault([
+            CertApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][CertApiDtoInterface::ID],
+            CertApiDtoInterface::POSITION => Position::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
