@@ -93,7 +93,7 @@ class FileFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
      */
     protected function create(ObjectManager $manager): self
     {
-        $short = self::getReferenceName();
+        $short = static::getReferenceName();
         $shortCert = CertFixtures::getReferenceName();
         $i = 0;
 
