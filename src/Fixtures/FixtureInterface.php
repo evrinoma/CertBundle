@@ -16,5 +16,5 @@ namespace Evrinoma\CertBundle\Fixtures;
 interface FixtureInterface
 {
     public const CERT_FIXTURES = 'CERT_FIXTURES';
-    public const FILE_FIXTURES = 'FILE_FIXTURES';
+    public const CERT_FILE_FIXTURES = 'CERT_FILE_FIXTURES';
 }

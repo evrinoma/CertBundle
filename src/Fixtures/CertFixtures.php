@@ -96,7 +96,7 @@ class CertFixtures extends AbstractFixture implements FixtureGroupInterface, Ord
     public static function getGroups(): array
     {
         return [
-            FixtureInterface::CERT_FIXTURES, FixtureInterface::FILE_FIXTURES,
+            FixtureInterface::CERT_FIXTURES, FixtureInterface::CERT_FILE_FIXTURES,
         ];
     }
 
