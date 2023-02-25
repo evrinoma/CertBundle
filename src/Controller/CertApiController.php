@@ -96,6 +96,7 @@ final class CertApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->post($certApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -145,6 +146,7 @@ final class CertApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->put($certApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -194,6 +196,7 @@ final class CertApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->delete($certApiDto, '', $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -277,6 +280,7 @@ final class CertApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->criteria($certApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -325,6 +329,7 @@ final class CertApiController extends AbstractWrappedApiController implements Ap
         try {
             $this->facade->get($certApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
