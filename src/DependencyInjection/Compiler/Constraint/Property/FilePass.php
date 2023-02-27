@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class FilePass extends AbstractConstraint implements CompilerPassInterface
 {
-    public const FILE_CONSTRAINT = 'evrinoma.cert.constraint.file.property';
+    public const FILE_CONSTRAINT = 'evrinoma.cert.constraint.property.file';
 
     protected static string $alias = self::FILE_CONSTRAINT;
     protected static string $class = FileValidator::class;

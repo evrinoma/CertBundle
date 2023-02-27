@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class CertPass extends AbstractConstraint implements CompilerPassInterface
 {
-    public const CERT_CONSTRAINT = 'evrinoma.cert.constraint.cert.property';
+    public const CERT_CONSTRAINT = 'evrinoma.cert.constraint.property.cert';
 
     protected static string $alias = self::CERT_CONSTRAINT;
     protected static string $class = CertValidator::class;
