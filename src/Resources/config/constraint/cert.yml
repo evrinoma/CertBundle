@@ -1,7 +1,4 @@
 services:
-  evrinoma.cert.constraint.property.cert.body:
-    class: Evrinoma\CertBundle\Constraint\Property\Cert\Body
-
   evrinoma.cert.constraint.property.cert.title:
     class: Evrinoma\CertBundle\Constraint\Property\Cert\Title
 
